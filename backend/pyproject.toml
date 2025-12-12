@@ -1,0 +1,11 @@
+[project]
+name = "kaasu-backend"
+version = "0.1.0"
+description = "Kaasu backend (FastAPI)"
+requires-python = ">=3.11"
+dependencies = [
+	"fastapi>=0.95.0",
+	"uvicorn[standard]>=0.22.0",
+]
+
+[tool.uv]

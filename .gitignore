@@ -1,0 +1,26 @@
+# Python
+backend/.venv/
+backend/venv/
+*.pyc
+__pycache__/
+.env
+.env.*
+
+# Node / pnpm / Next.js
+node_modules/
+frontend/node_modules/
+frontend/.next/
+.pnp/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+
+# Editor / OS
+.vscode/
+.DS_Store
+
+# Logs
+npm-debug.log
+yarn-error.log
