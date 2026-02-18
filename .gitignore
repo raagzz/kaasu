@@ -3,8 +3,15 @@ backend/.venv/
 backend/venv/
 *.pyc
 __pycache__/
+
+# Environment files — never commit real credentials
 .env
 .env.*
+.env.local
+.env.local.*
+# But DO commit the example templates
+!.env.example
+!.env.local.example
 
 # Node / pnpm / Next.js
 node_modules/
@@ -19,8 +26,11 @@ build/
 
 # Editor / OS
 .vscode/
+.idea/
 .DS_Store
+Thumbs.db
 
 # Logs
-npm-debug.log
-yarn-error.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*

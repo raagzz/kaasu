@@ -1,0 +1,403 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ── Tailwind Theme Bindings ─────────────────────────── */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-outfit);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-familjen);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Indian palette colors for Tailwind */
+  --color-saffron: #ff6b35;
+  --color-teal: #0d9488;
+  --color-gold: #d4a574;
+  --color-henna: #10b981;
+  --color-indigo-accent: #6366f1;
+  --color-turmeric: #f59e0b;
+  --color-magenta: #ec4899;
+  --color-neel: #3b82f6;
+}
+
+/* ── Dark Indian Palette ─────────────────────────────── */
+
+:root {
+  --radius: 0px;
+
+  /* Base — deep warm black */
+  --background: #0a0a0b;
+  --foreground: #faf7f2;
+
+  /* Surfaces */
+  --card: #111113;
+  --card-foreground: #faf7f2;
+  --popover: #141416;
+  --popover-foreground: #faf7f2;
+
+  /* Primary — Saffron */
+  --primary: #ff6b35;
+  --primary-foreground: #0a0a0b;
+
+  /* Secondary */
+  --secondary: #1a1a1d;
+  --secondary-foreground: #faf7f2;
+
+  /* Muted */
+  --muted: #1a1a1d;
+  --muted-foreground: #71717a;
+
+  /* Accent — Teal */
+  --accent: #0d9488;
+  --accent-foreground: #faf7f2;
+
+  /* Destructive */
+  --destructive: #ef4444;
+
+  /* Borders */
+  --border: #222225;
+  --input: #222225;
+  --ring: #ff6b35;
+
+  /* Chart palette */
+  --chart-1: #ff6b35;
+  --chart-2: #0d9488;
+  --chart-3: #d4a574;
+  --chart-4: #6366f1;
+  --chart-5: #10b981;
+
+
+}
+
+/* ── Base Styles ─────────────────────────────────────── */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ── Geometric Jaali Pattern ─────────────────────────── */
+
+.jaali-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='rgba(255,107,53,0.04)' stroke-width='0.5'/%3E%3Cpath d='M20 8 L32 20 L20 32 L8 20 Z' fill='none' stroke='rgba(255,107,53,0.025)' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+.jaali-border {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 0 L24 12 L12 24 L0 12 Z' fill='none' stroke='rgba(255,107,53,0.08)' stroke-width='0.75'/%3E%3C/svg%3E");
+}
+
+/* ── Scrollbar ───────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* ── Animations ──────────────────────────────────────── */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes barGrow {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 20px 2px rgba(255, 107, 53, 0.15);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.4s ease-out both;
+}
+
+.animate-bar-grow {
+  animation: barGrow 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Stagger delays */
+.delay-1 {
+  animation-delay: 0.05s;
+}
+
+.delay-2 {
+  animation-delay: 0.1s;
+}
+
+.delay-3 {
+  animation-delay: 0.15s;
+}
+
+.delay-4 {
+  animation-delay: 0.2s;
+}
+
+.delay-5 {
+  animation-delay: 0.25s;
+}
+
+.delay-6 {
+  animation-delay: 0.3s;
+}
+
+.delay-7 {
+  animation-delay: 0.35s;
+}
+
+.delay-8 {
+  animation-delay: 0.4s;
+}
+
+/* ── Category Color Indicator ────────────────────────── */
+
+.cat-indicator {
+  width: 3px;
+  min-height: 100%;
+  flex-shrink: 0;
+}
+
+/* ── Saffron Glow Effect ─────────────────────────────── */
+
+.saffron-glow {
+  box-shadow: 0 0 0 1px rgba(255, 107, 53, 0.2),
+    0 0 24px -4px rgba(255, 107, 53, 0.15);
+}
+
+.saffron-glow-sm {
+  box-shadow: 0 0 12px -2px rgba(255, 107, 53, 0.1);
+}
+
+/* ── Expense Row Hover ───────────────────────────────── */
+
+.expense-row {
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.expense-row:hover {
+  background-color: #141416;
+  border-color: #2a2a2d;
+}
+
+/* ── Stat Card Hover ─────────────────────────────────── */
+
+.stat-card {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  border-color: #333336;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Filter Pill ─────────────────────────────────────── */
+
+.filter-pill {
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.filter-pill:hover {
+  border-color: #ff6b35;
+  color: #ff6b35;
+}
+
+.filter-pill.active {
+  background-color: #ff6b35;
+  border-color: #ff6b35;
+  color: #0a0a0b;
+  font-weight: 600;
+}
+
+/* ── Display Font Utility ────────────────────────────── */
+
+/* ── Floating Nav ────────────────────────────────────── */
+
+.floating-nav {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  background: rgba(10, 10, 11, 0.8);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid rgba(34, 34, 37, 0.7);
+  animation: navSlideDown 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.floating-nav .nav-item {
+  position: relative;
+}
+
+@keyframes navSlideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* ── Display Font Utility ────────────────────────────── */
+
+.font-display {
+  font-family: var(--font-familjen), var(--font-outfit), sans-serif;
+}
+
+/* ── Geometric Decorative Line ───────────────────────── */
+
+.geo-line {
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 107, 53, 0.3) 20%,
+      rgba(255, 107, 53, 0.5) 50%,
+      rgba(255, 107, 53, 0.3) 80%,
+      transparent);
+}
+
+/* ── Quick Add Focus Effect ──────────────────────────── */
+
+.quick-add-bar {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-add-bar:focus-within {
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 1px rgba(255, 107, 53, 0.15),
+    0 0 20px -4px rgba(255, 107, 53, 0.1);
+}
+
+/* ── Recharts Overrides ──────────────────────────────── */
+
+.recharts-default-tooltip {
+  background-color: #141416 !important;
+  border: 1px solid #222225 !important;
+  border-radius: 0 !important;
+}
+
+.recharts-tooltip-label {
+  color: #faf7f2 !important;
+}
